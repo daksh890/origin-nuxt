@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-
+import { NavigateToItem } from 'typescript';
 
 export default defineComponent({
     name:"SignIn",
