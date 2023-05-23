@@ -3,42 +3,56 @@
         <div class="dashboard">
             <h3>Dashboard</h3>
         </div>
-        <!-- <div class="filter">
-            <Filter :tasks="tasks" @filter="filteredCards"/>
-        </div> -->
+        <div class="filter">
+            <Filter @filter="filteredCards"/>
+        </div>
         <div class="cards">
-            <div :key="task.id" v-for="task in data">
+            <div :key="task.id" v-for="task in filteredTasks">
                 <Card :task="task" @update="update"/>
             </div>
         </div>
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
-import  getData  from "../../data/data";
-import Card from '../utils/card.vue';
+<script setup lang="ts">
+    import Card from '../utils/card.vue';
+    import  getData  from "../../data/data";
 
-export default defineComponent({
-    props:['task'],
-    components:{Card},
-    setup () {
-        const data = getData();
-        const filteredTasks = ref(data);
-        function update(id:string, labels:Array<string>){
-            // console.log(id, labels);
-            for (var i=0; i<data.length; i++){
-                if(data[i].id === id){
-                    data[i].labels = labels;
-                    // console.log(data[i].labels);
-                    filteredTasks.value = data;
-                }
+    const data = getData();
+    const filteredTasks = ref(data);
+    
+    function update(id:string, labels:Array<string>){
+        // console.log(id, labels);
+        for (var i=0; i<data.length; i++){
+            if(data[i].id === id){
+                data[i].labels = labels;
+                // console.log(data[i].labels);
+                filteredTasks.value = data;
             }
         }
-    
-        return {data, update, filteredTasks}
     }
-})
+
+    function filteredCards(category:string){
+        var filtertag:string="";
+        if (category =="" || category == "all"){
+            filtertag="all";
+            filteredTasks.value = data;
+        }else{
+            filtertag=category;
+            const filtereddata = data.filter((item) => {
+                let tags = item.labels.some((label) => {
+                    return label === filtertag;
+                })
+                return tags;
+            })
+            console.log(filtereddata);
+            filteredTasks.value = filtereddata;
+            return filtereddata;
+        }
+    }
+    
+        
+
 </script>
 
 <style scoped>

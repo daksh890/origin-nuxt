@@ -21,27 +21,16 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { NavigateToItem } from 'typescript';
 
-export default defineComponent({
-    name:"SignIn",
-    setup () {
-        const email = ref("");
-        const password = ref("");
-
-        const handleSubmit = (e:Event) => {
-            e.preventDefault();
-            console.log(email.value, password.value);
-            navigateTo("/dashboard");
-        }
-
-        return {
-            email, password, handleSubmit
-        }
+<script setup lang="ts">
+    const email = ref("");
+    const password = ref("");
+    const handleSubmit = (e:Event) => {
+        e.preventDefault();
+        console.log(email.value, password.value);
+        navigateTo("/dashboard");
     }
-})
+
 </script>
 
 <style scoped>

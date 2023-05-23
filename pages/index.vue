@@ -2,15 +2,15 @@
     <div class="home">
         <Header/>
         <div class="login">
-            <Signin/>
+            <SignIn/>
         </div>
     </div>
 </template>
-
 <script setup lang="ts">
-    import Header from '~/components/Header/header.vue';
-    import Signin from '~/components/Signin/signin.vue';
+import SignIn from '~/components/Signin/SignIn.vue';
+
 </script>
+
 
 <style>
     body, html{

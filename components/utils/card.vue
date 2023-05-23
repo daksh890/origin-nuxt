@@ -27,40 +27,29 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, toRef, ref } from 'vue';
-import type {PropType, Ref} from "vue";
 
-export default defineComponent({
-    props: {
+<script setup lang="ts">
+    const props = defineProps({
         task:Object as PropType<Card>|any
-    },
-    
-
-    setup(props) {
-        const task:Ref<Card> = toRef(props, "task");
+    })
+    const task:Ref<Card> = toRef(props, "task");
         const labels = ref(task.value.labels);
         const flag = ref(true);
         const newtag = ref("");
-        // console.log(task);
+        
         const changelabels = function(){
-            // console.log(newtag.value);
             if(newtag.value != ""){
                 labels.value = [...labels.value, newtag.value];
             }
-            // console.log(labels.value);
+           
         };
         const updatelabels = function(tag:String){
             var newlabels = labels.value.filter((item:String)=> {
                     return item != tag;
                 })
             labels.value = newlabels;
-            // console.log(labels.value);
+            
         };
-        
-        return {task, flag, newtag, labels,changelabels, updatelabels};
-    }
-})
 </script>
 
 <style scoped>

@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="logo">
-            <img alt="logo" :src="logo"/>
+            <img alt="logo" src="/logo.png"/>
         </div>
         <div class="nav">
             <RouterLink to="/">Homepage</RouterLink>
@@ -10,10 +10,6 @@
 </template>
 
 
-
-<script setup lang="ts">
-    import logo from "../../src/Assets/Logo.png";
-</script>
 
 <style scoped>
     .header{

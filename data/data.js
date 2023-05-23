@@ -1,17 +1,17 @@
-import cat1 from "../src/Assets/RoleImages/images/cat1.jpg";
-import cat2 from "../src/Assets/RoleImages/images/cat2.jpg";
-import cat3 from "../src/Assets/RoleImages/images/cat3.jpg";
-import cat4 from "../src/Assets/RoleImages/images/cat4.jpg";
-import cat5 from "../src/Assets/RoleImages/images/cat5.jpg";
+import cat1 from "assets/RoleImages/images/cat1.jpg";
+import cat2 from "assets/RoleImages/images/cat2.jpg";
+import cat3 from "assets/RoleImages/images/cat3.jpg";
+import cat4 from "assets/RoleImages/images/cat4.jpg";
+import cat5 from "assets/RoleImages/images/cat5.jpg";
 
-import dog1 from "../src/Assets/RoleImages/images/dog1.jpg";
-import dog2 from "../src/Assets/RoleImages/images/dog2.jpg";
-import dog3 from "../src/Assets/RoleImages/images/dog3.jpg";
-import dog4 from "../src/Assets/RoleImages/images/dog4.jpg";
+import dog1 from "assets/RoleImages/images/dog1.jpg";
+import dog2 from "assets/RoleImages/images/dog2.jpg";
+import dog3 from "assets/RoleImages/images/dog3.jpg";
+import dog4 from "assets/RoleImages/images/dog4.jpg";
 
-import horse1 from "../src/Assets/RoleImages/images/horse1.jpg";
-import horse2 from "../src/Assets/RoleImages/images/horse2.jpg";
-import horse3 from "../src/Assets/RoleImages/images/horse3.jpg";
+import horse1 from "assets/RoleImages/images/horse1.jpg";
+import horse2 from "assets/RoleImages/images/horse2.jpg";
+import horse3 from "assets/RoleImages/images/horse3.jpg";
 
 // type getData = () => Array<Card>;
 
