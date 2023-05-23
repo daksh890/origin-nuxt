@@ -11,7 +11,7 @@
 
         <div class="new" v-else>
             <div class="input">
-                <input type="text" placeholder="Enter new tag" v-model="newtag"/>
+                <input type="text" placeholder="Enter new tag" v-model="newTag"/>
                 <button @click="changelabels">Add</button>
             </div>
             <div class="curr-tags">
@@ -35,11 +35,11 @@
     const task:Ref<Card> = toRef(props, "task");
         const labels = ref(task.value.labels);
         const flag = ref(true);
-        const newtag = ref("");
+        const newTag = ref("");
         
         const changelabels = function(){
-            if(newtag.value != ""){
-                labels.value = [...labels.value, newtag.value];
+            if(newTag.value != ""){
+                labels.value = [...labels.value, newTag.value];
             }
            
         };
