@@ -17,7 +17,7 @@
 <script setup lang="ts">
     
     import  getData  from "./../data/data";
-
+    import { useArrayFilter } from '@vueuse/core';
     const data = getData();
     const filteredTasks = ref(data);
     
@@ -35,24 +35,19 @@
     function filteredCards(category:string){
         var filterTag:string="";
         if (category =="" || category == "all"){
-            filterTag="all";
             filteredTasks.value = data;
         }else{
             filterTag=category;
-            const filteredData = data.filter((item) => {
+            filteredTasks.value = useArrayFilter(data, (item)=>{
                 let tags = item.labels.some((label) => {
-                    return label === filterTag;
+                        return label === filterTag;
                 })
+                // console.log(tags);
                 return tags;
-            })
-            console.log(filteredData);
-            filteredTasks.value = filteredData;
-            return filteredData;
+            }).value;
         }
     }
     
-        
-
 </script>
 
 <style scoped>

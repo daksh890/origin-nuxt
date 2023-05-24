@@ -12,11 +12,11 @@
         <div class="new" v-else>
             <div class="input">
                 <input type="text" placeholder="Enter new tag" v-model="newTag"/>
-                <button @click="changelabels">Add</button>
+                <button @click="changeLabels">Add</button>
             </div>
             <div class="curr-tags">
                 <div class="tag" v-for="(tag, index) in labels" :key="index">
-                    <div @click="updatelabels(tag)">{{tag}}</div>
+                    <div @click="updateLabels(tag)">{{tag}}</div>
                 </div>
             </div>
         </div>
@@ -37,13 +37,13 @@
         const flag = ref(true);
         const newTag = ref("");
         
-        const changelabels = function(){
+        const changeLabels = function(){
             if(newTag.value != ""){
                 labels.value = [...labels.value, newTag.value];
             }
            
         };
-        const updatelabels = function(tag:String){
+        const updateLabels = function(tag:String){
             var newlabels = labels.value.filter((item:String)=> {
                     return item != tag;
                 })
