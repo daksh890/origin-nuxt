@@ -15,9 +15,9 @@
 </template>
 
 <script setup lang="ts">
-    import Card from '../utils/card.vue';
-    import  getData  from "../../data/data";
-
+    
+    import  getData  from "./../data/data";
+    import { useArrayFilter } from '@vueuse/core';
     const data = getData();
     const filteredTasks = ref(data);
     
@@ -33,26 +33,21 @@
     }
 
     function filteredCards(category:string){
-        var filtertag:string="";
+        var filterTag:string="";
         if (category =="" || category == "all"){
-            filtertag="all";
             filteredTasks.value = data;
         }else{
-            filtertag=category;
-            const filtereddata = data.filter((item) => {
+            filterTag=category;
+            filteredTasks.value = useArrayFilter(data, (item)=>{
                 let tags = item.labels.some((label) => {
-                    return label === filtertag;
+                        return label === filterTag;
                 })
+                // console.log(tags);
                 return tags;
-            })
-            console.log(filtereddata);
-            filteredTasks.value = filtereddata;
-            return filtereddata;
+            }).value;
         }
     }
     
-        
-
 </script>
 
 <style scoped>

@@ -1,14 +1,15 @@
 <template>
       <div class="filter-box">
         <input type="text" placeholder="type tag to search" v-model="category"/>
-        <button @click="handleclick">search</button>
+        <button @click="handleClick">search</button>
     </div>
 </template>
 
 <script setup lang="ts">
+
 const category = ref("");
 const emit = defineEmits(['filter']);
-const handleclick = function(){
+const handleClick = function(){
     emit('filter', category.value);
 }
 </script>

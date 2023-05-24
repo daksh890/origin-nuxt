@@ -6,10 +6,7 @@
         </div>
     </div>
 </template>
-<script setup lang="ts">
-import SignIn from '~/components/Signin/SignIn.vue';
 
-</script>
 
 
 <style>
